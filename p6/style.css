@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #0d6efd;
+}
+
+h2 {
+    color: #0d6efd;
+}
+
+body {
+    font-family: "Segoe UI";
+    margin: 0;
+    padding: 10px;
+    background-color: gray;
+}
+
+.main {
+    width: 100%;
+    font-family: "Segoe UI";
+    margin: 0;
+    padding: 10px;
+    background-color: gray;
+    overflow: auto;
+}
+
+.left {
+    float: left;
+    width: 70%;
+    padding: 5px;
+}
+
+.right {
+    float: right;
+    width: 30%;
+    padding: 10px;
+    background-color: gray;
+}
+
+.jumbotron {
+    font-size: 20px;
+    padding: 60px;
+    background-color: white;
+    text-align: center;
+    color: black;
+}
+
+.navbar li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.navbar li a {
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.navbar li a:hover {
+    background: white;
+    color: #0d6efd;
+}
+
+.navbar {
+    background-color: #0d6efd;
+    padding: 5px;
+    /* position: sticky; */
+    top: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar a {
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+    float: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    color: white;
+    background-color: #0d6efd;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.featured-image {
+    width: 100px;
+}
+
+@media screen and (max-width: 1000px) {
+    .left {
+        width: 100%;
+        padding: 0;
+    }
+    .right {
+        width: 100%;
+        padding: 0;
+    }
+}
