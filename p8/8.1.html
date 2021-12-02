@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <h1>Kalkulator Mini</h1>
+    <form action="#" method="post">
+        <table border="0">
+            <tr>
+                <td>Nilai 1 </td>
+                <td>:</td>
+                <td>
+                    <input type="number" id="value1" >
+                </td>
+            </tr>
+            <tr>
+                <td>Nilai 2 </td>
+                <td>:</td>
+                <td>
+                    <input type="number" id="value2" >
+                </td>
+            </tr>
+            <tr>
+                <td>Hasil </td>
+                <td>:</td>
+                <td>
+                    <input type="number" id="result" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="plus">+</button>
+                
+                    <button type="button" id="minus">-</button>
+                
+                    <button type="button" id="bagi">/</button>
+                
+                    <button type="button" id="kali">X</button>
+                </td>
+                <td>
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+<script>
+    const plus = document.getElementById('plus');
+    const minus = document.getElementById('minus');
+    const bagi = document.getElementById('bagi');
+    const kali = document.getElementById('kali');
+
+    plus.addEventListener('click',function(){
+        value1 = document.getElementById('value1').value;
+        value2 = document.getElementById('value2').value;
+        document.getElementById('result').value = parseInt(value1) + parseInt(value2);
+    });
+
+    minus.addEventListener('click',function(){
+        value1 = document.getElementById('value1').value;
+        value2 = document.getElementById('value2').value;
+        document.getElementById('result').value = parseInt(value1) - parseInt(value2);
+    });
+    kali.addEventListener('click',function(){
+        value1 = document.getElementById('value1').value;
+        value2 = document.getElementById('value2').value;
+        document.getElementById('result').value = parseInt(value1) * parseInt(value2);
+    });
+    bagi.addEventListener('click',function(){
+        value1 = document.getElementById('value1').value;
+        value2 = document.getElementById('value2').value;
+        document.getElementById('result').value = parseInt(value1) / parseInt(value2);
+    });
+</script>
+</html>

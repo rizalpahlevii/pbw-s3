@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilai</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <h1>Hitung Nilai</h1>
+        <table border="0">
+            <tr>
+                <td>Nilai Tugas (20%)</td>
+                <td>:</td>
+                <td><input type="number" id="nilai_tugas"></td>
+            </tr>
+            <tr>
+                <td>Nilai UTS (35%)</td>
+                <td>:</td>
+                <td><input type="number" id="nilai_uts"></td>
+            </tr>
+            <tr>
+                <td>Nilai UAS (35%)</td>
+                <td>:</td>
+                <td><input type="number" id="nilai_uas"></td>
+            </tr>
+            <tr>
+                <td>Nilai Akhir</td>
+                <td>:</td>
+                <td><input type="number" id="nilai_akhir"></td>
+            </tr>
+            <tr>
+                <td>Nilai Huruf</td>
+                <td>:</td>
+                <td><input type="text" id="nilai_huruf"></td>
+            </tr>
+            <tr>
+                <td>Predikat</td>
+                <td>:</td>
+                <td><input type="text" id="predikat"></td>
+            </tr>
+            <td>
+                <td>
+                    <input type="button" value="Hitung" onclick="calc()">
+                    <input type="reset" value="Reset">
+                </td>
+                
+            </td>
+        </table>
+    </form>
+    <script>
+        function calc() {
+            const ntugas = document.getElementById('nilai_tugas').value;
+            const nuts = document.getElementById('nilai_uts').value;
+            const nuas = document.getElementById('nilai_uas').value;
+            const hsl = (20 * (parseInt(ntugas) / 100)) + (35 * (parseInt(nuts) / 100)) + (45 * (parseInt(nuas) / 100));
+            document.getElementById('nilai_akhir').value = hsl;
+            if (hsl > 84 && hsl < 101) {
+                var hslhuruf = "A";
+                var hslpredikat = "Apik";
+            } else if (hsl > 79 && hsl < 85) {
+                var hslhuruf = "AB";
+                var hslpredikat = "Apik Baik";           
+            } else if (hsl > 69 && hsl < 80) {
+                var hslhuruf = "B";
+                var hslpredikat = "Baik";
+            } else if (hsl > 64 && hsl < 70) {
+                var hslhuruf = "BC";
+                var hslpredikat = "Baik Cukup";
+            } else if (hsl > 59 && hsl < 65) {
+                var hslhuruf = "C";
+                var hslpredikat = "Cukup";
+            } else if (hsl > 39 && hsl < 60) {
+                var hslhuruf = "D";
+                var hslpredikat = "Dableg";
+            } else if (hsl > -1 && hsl < 40) {
+                var hslhuruf = "E";
+                var hslpredikat = "Elek";
+            } else {
+                var hslhuruf = "Niai tidak ada";
+                var hslpredikat = "Niai tidak ada";   
+            };
+            document.getElementById('nilai_huruf').value = hslhuruf;
+            document.getElementById('predikat').value = hslpredikat;
+        }
+    </script>
+</body>
+</html>
