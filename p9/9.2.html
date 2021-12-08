@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menampilkan Umur</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Tanggal</td>
+            <td>:</td>
+            <td id="tanggal"></td>
+        </tr>
+        <tr>
+            <td>Hari</td>
+            <td>:</td>
+            <td id="hari"></td>
+        </tr>
+        <tr>
+            <td>Bulan</td>
+            <td>:</td>
+            <td id="bulan"></td>
+        </tr>
+        <tr>
+            <td>Tanggal Lahir</td>
+            <td>:</td>
+            <td id="tanggal_lahir"></td>
+        </tr>
+        <tr>
+            <td>Umur</td>
+            <td>:</td>
+            <td id="umur"></td>
+        </tr>
+        <tr>
+            <td>Bulan Lahir</td>
+            <td>:</td>
+            <td id="bulan_lahir"></td>
+        </tr>
+        <tr>
+            <td>Hari Lahir</td>
+            <td>:</td>
+            <td id="hari_lahir"></td>
+        </tr>
+        <tr>
+            <td>Weton</td>
+            <td>:</td>
+            <td id="weton"></td>
+        </tr>
+    </table>
+    <script>
+        var date = new Date("2002-07-03");
+        var days =  new Array("Minggu","Senin","Selasa","Rabu","Kamis","Jum'at","Sabtu");
+        var months =  new Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+        var weton = new Array('Pon', 'Wage', 'Kliwon', 'Legi', 'Pahing');
+        document.getElementById('tanggal').innerHTML = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+        document.getElementById('hari').innerHTML = days[date.getDay()];
+        document.getElementById('bulan').innerHTML = months[date.getMonth()];
+        document.getElementById('tanggal_lahir').innerHTML = date;
+        document.getElementById('umur').innerHTML = _calculateAge(date);
+        document.getElementById('hari_lahir').innerHTML = days[date.getDay()];
+        document.getElementById('bulan_lahir').innerHTML = months[date.getMonth()];
+        document.getElementById('weton').innerHTML = hitungpasaran(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+
+        function _calculateAge(birthday) { 
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); 
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        }
+
+        function hitungpasaran(_tanggal) {
+            var awal = new Date(70,0,2);
+            pembagian = ((_tanggal.getTime()-awal.getTime())+86400000)/432000000;
+            sisa = Math.round((pembagian-Math.floor(pembagian))*10)/2;
+            
+            switch (sisa) {
+                case 0:
+                return "Wage";
+                case 1:
+                return "Kliwon";
+                case 2:
+                return "Legi";
+                case 3:
+                return "Pahing";
+                case 4:
+                return "Pon";
+                default:
+                return "";
+            }
+        }
+    </script>
+</body>
+</html>
