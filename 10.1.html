@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Harga</title>
+</head>
+<body>
+	<h1>Simulasi</h1>
+	<table>
+		<tr>
+			<td>Harga</td>
+			<td><input type="text" name="harga" id="harga" onkeyup="onkeyupHarga()"></td>
+		</tr>
+		<tr>
+			<td>Jumlah</td>
+			<td><input type="text" name="jumlah" id="jumlah" value="0" onkeyup="onkeyupJumlah()"></td>
+		</tr>
+		<tr>
+			<td>Ongkir</td>
+			<td><input type="text" name="ongkir" id="ongkir"></td>
+		</tr>
+		<tr>
+			<td>Total</td>
+			<td><input type="text" name="total" id="total"></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function onkeyupHarga(){
+			total = document.getElementById('harga').value *document.getElementById('jumlah').value;
+			ongkir = total * 0.1;
+			grand = total - ongkir;
+			document.getElementById('ongkir').value = ongkir;
+			document.getElementById('total').value = grand;
+		}
+		function onkeyupJumlah(){
+			total = document.getElementById('harga').value *document.getElementById('jumlah').value;
+			ongkir = total * 0.1;
+			grand = total - ongkir;
+			document.getElementById('ongkir').value = ongkir;
+			document.getElementById('total').value = grand;
+		}
+	</script>
+</body>
+</html>
