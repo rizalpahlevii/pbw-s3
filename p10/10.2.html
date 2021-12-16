@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewpoint" content="width=device-width, initial-scale=1">
+      <title>Latihan 10 Rumus ABC</title>
+   </head>
+   <body>
+      <h2>Rumus ABC</h2>
+      <p>Ini adalah halaman untuk menghitung Rumus ABC.<br>Kita tahu bentuk
+         umum dari persamaan kuadrat adalah <b><i>ax<sup>2</sup> + bx + c</i></b>.<br>C
+         ukup masukkan nilai <b><i>a</i></b>, <b><i>b</i></b>, dan <b><i>c</i></b>, hal
+         aman ini akan menghitung nilai <b>determinan</b>, <b><i>x<sub>1</sub></i></b>,
+         dan <b><i>x<sub>2</sub></i></b> untuk Anda!
+      </p>
+      <form name="hasilnya">
+         <table align="center">
+            <tr>
+               <td>Nilai a</td>
+               <td>: <input type="number" name="na"></td>
+            </tr>
+            <tr>
+               <td>Nilai b</td>
+               <td>: <input type="number" name="nb"></td>
+            </tr>
+            <tr>
+               <td>Nilai c</td>
+               <td>: <input type="number" name="nc"></td>
+            </tr>
+            <tr>
+               <td align="left"><button type="button" onclick="hitung()">
+                  Hitung</button>
+               </td>
+               <td align="right"><button type="button" onclick="hapus()">
+                  Reset</button>
+               </td>
+            </tr>
+         </table>
+      </form>
+      <br>
+      <p id="pers_kuadrat"></p>
+      <p id="determinan"></p>
+      <p id="x1"></p>
+      <p id="x2"></p>
+<script type="text/javascript">
+	function hitung() {
+    // inisialisasi
+    var a = document.hasilnya.na.value;
+    var b = document.hasilnya.nb.value;
+    var c = document.hasilnya.nc.value;
+    // hitung determinan
+    var determinan = ((Number(b)) ** 2) - (4 * Number(a) * Number(c));
+    // hitung x1 dan x2
+    var x1 = "";
+    var x2 = ""
+    if (determinan > 0) {
+        x1 = "(-" + b + " + √" + determinan + ") / 2" + a;
+        x2 = "(-" + b + " - √" + determinan + ") / 2" + a;
+    } else if (determinan == 0) {
+        x1 = x2 = "(-" + b + ") / 2" + a;
+    } else if (determinan < 0) {
+        x1 = "(-" + b + " + (√-(" + determinan + "))i) / 2" + a;
+        x2 = "(-" + b + " - (√-(" + determinan + "))i) / 2" + a;
+    };
+    hapus();
+    // cetak persamaan umum
+    var var1 = document.getElementById("pers_kuadrat");
+    var1.appendChild(document.createTextNode("Persamaan kuadrat adalah "));
+    var bold = document.createElement("B");
+    var italic = document.createElement("I");
+    italic.appendChild(document.createTextNode(a + "x"));
+    var sup = document.createElement("SUP");
+    sup.appendChild(document.createTextNode("2"));
+    italic.appendChild(sup);
+    italic.appendChild(document.createTextNode(" + " + b + "x + " + c));
+    bold.appendChild(italic);
+    var1.appendChild(bold);
+    var1.appendChild(document.createTextNode("."));
+    // cetak determinan
+    var var2 = document.getElementById("determinan");
+    var2.appendChild(document.createTextNode("Nilai determinan adalah "));
+    var bold2 = document.createElement("B");
+    bold2.appendChild(document.createTextNode(determinan));
+    var2.appendChild(bold2);
+    var2.appendChild(document.createTextNode("."));
+    // cetak nilai x1 var
+    var3 = document.getElementById("x1");
+    var3.appendChild(document.createTextNode("Nilai x"));
+    var bold3 = document.createElement("B");
+    var italic3 = document.createElement("I");
+    var sub1 = document.createElement("SUB");
+    sub1.appendChild(document.createTextNode("1"));
+    var3.appendChild(sub1);
+    var3.appendChild(document.createTextNode(" adalah "))
+    italic3.appendChild(document.createTextNode(x1));
+    bold3.appendChild(italic3)
+    var3.appendChild(bold3);
+    // cetak nilai x2
+    var var4 = document.getElementById("x2");
+    var4.appendChild(document.createTextNode("Nilai x"));
+    var bold4 = document.createElement("B");
+    var italic4 = document.createElement("I");
+    var sub2 = document.createElement("SUB");
+    sub2.appendChild(document.createTextNode("2"));
+    var4.appendChild(sub2);
+    var4.appendChild(document.createTextNode(" adalah "))
+    italic4.appendChild(document.createTextNode(x2));
+    bold4.appendChild(italic4)
+    var4.appendChild(bold4);
+};
+
+function hapus() {
+    document.querySelector("form").reset();
+    document.getElementById("pers_kuadrat").innerHTML = "";
+    document.getElementById("determinan").innerHTML = "";
+    document.getElementById("x1").innerHTML = "";
+    document.getElementById("x2").innerHTML = "";
+};
+</script>
+</body>
+</html>
